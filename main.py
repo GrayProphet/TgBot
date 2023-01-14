@@ -27,7 +27,7 @@ async def send_bay_command(message: types.Message):
         return await bot.send_message(message.chat.id,
                                       "Мы сожалеем, но рыбов не осталось, приходите по позже")
     if not args:
-        await bot.send_message(message.chat.id,
+        return await bot.send_message(message.chat.id,
                                f"Сейчас есть {len(ribov_list)} рыбов в наличии. Сколько рыбов вы хотитете?")
     else:
         if args.isdigit():
@@ -46,7 +46,7 @@ async def send_bay_command(message: types.Message):
 
 @dp.message_handler(commands=['start'])
 async def send_welcome_command(message: types.Message):
-    await bot.send_message(message.chat.id, "Данный бот продает рыбов")
+    return await bot.send_message(message.chat.id, "Данный бот продает рыбов")
 
 
 if __name__ == '__main__':
